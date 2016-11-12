@@ -21,13 +21,13 @@
 <meta property="og:url" content="http://yoursite.com/2016/06/16/Mac上搭建博客/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="在OS X上搭建博客利用hexo这款基于Node.js的静态博客框架，在github上搭建自己的个人博客搭建博客首先需要配置环境1    安装Node作用：用来生成静态页面的前往node官网选择左侧的下载就好2    安装Git作用：把本地的hexo内容提交到github上去.安装Xcode就自带有Git，我就不多说了。3    申请一枚GitHub账号作用：是用来做博客的远程创库、域名、服务器之">
-<meta property="og:image" content="http://yoursite.com/./img/hexo.png">
-<meta property="og:image" content="http://yoursite.com/./img/repo.jpg">
-<meta property="og:updated_time" content="2016-11-12T13:27:01.000Z">
+<meta property="og:image" content="http://yoursite.com/img/hexo.png">
+<meta property="og:image" content="http://yoursite.com/img/repo.jpg">
+<meta property="og:updated_time" content="2016-11-12T13:35:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上搭建博客">
 <meta name="twitter:description" content="在OS X上搭建博客利用hexo这款基于Node.js的静态博客框架，在github上搭建自己的个人博客搭建博客首先需要配置环境1    安装Node作用：用来生成静态页面的前往node官网选择左侧的下载就好2    安装Git作用：把本地的hexo内容提交到github上去.安装Xcode就自带有Git，我就不多说了。3    申请一枚GitHub账号作用：是用来做博客的远程创库、域名、服务器之">
-<meta name="twitter:image" content="http://yoursite.com/./img/hexo.png">
+<meta name="twitter:image" content="http://yoursite.com/img/hexo.png">
 
   
 
@@ -214,13 +214,13 @@
 <p><strong>hexo generate（hexo g也可以）</strong></p>
 <p>本地启动<br>启动本地服务，进行文章预览调试，命令：</p>
 <p><strong>hexo server</strong></p>
-<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>可以在网站上看到生成的Hello World了！<br><img src="./img/hexo.png" alt="alt"></p>
+<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>可以在网站上看到生成的Hello World了！<br><img src="img/hexo.png" alt="alt"></p>
 <h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法<br>your_user_name指的是你创建github账号时使用的username，不是github的账号</p>
 <p>建立好库之后打开blog文件夹里的_config.yml文件，翻到最下面，<br>deploy：</p>
 <pre><code>type: git
 
 repo: https://github.com/hexojs/hexo.git
-</code></pre><p>把地址改成下图所示网址就好了<img src="./img/repo.jpg"></p>
+</code></pre><p>把地址改成下图所示网址就好了<img src="img/repo.jpg"></p>
 <p>然后，执行配置命令：</p>
 <p><strong>hexo deploy</strong></p>
 <p>然后再浏览器中输入<a href="http://username.github.io/" target="_blank" rel="external">http://username.github.io/</a></p>
