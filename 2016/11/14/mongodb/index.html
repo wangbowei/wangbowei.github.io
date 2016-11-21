@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>mongodb | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+  
+
+  <meta name="description" content="mongodb的学习简介在介绍mongoDB之前，我们先来简单了解下它的数据逻辑结构。
+MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database) 这三部分组成的。 
+文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/mongodb/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="mongodb的学习简介在介绍mongoDB之前，我们先来简单了解下它的数据逻辑结构。
+MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database) 这三部分组成的。 
+文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数">
+<meta property="og:updated_time" content="2016-11-21T10:01:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb">
+<meta name="twitter:description" content="mongodb的学习简介在介绍mongoDB之前，我们先来简单了解下它的数据逻辑结构。
+MongoDB的逻辑结构是一种层次结构，主要由：文档(document)、集合(collection)、数据库(database) 这三部分组成的。 
+文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=028c63b1" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb的学习简介"><span class="toc-text">mongodb的学习简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装以及引用"><span class="toc-text">安装以及引用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#链接数据库"><span class="toc-text">链接数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB基础"><span class="toc-text">MongoDB基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例1"><span class="toc-text">示例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例2"><span class="toc-text">示例2</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-mongodb" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">mongodb</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.11.14</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>John Doe</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.forsigner.com/2016/11/14/mongodb/#disqus_thread"></a>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="mongodb的学习简介"><a href="#mongodb的学习简介" class="headerlink" title="mongodb的学习简介"></a>mongodb的学习简介</h3><p>在介绍<a href="http://lib.csdn.net/base/mongodb" target="_blank" rel="external">mongoDB</a>之前，我们先来简单了解下它的数据逻辑结构。</p>
+<p>MongoDB的逻辑结构是一种层次结构，主要由：<strong>文档(document)、集合(collection)、数据库(database)</strong> 这三部分组成的。 </p>
+<pre><code>文档(document)：由键/值对构成，像{a:1}；{s:”abc”}等，它是MongoDB核心单元，MongoDB的文档（document），相当于关系数据库中的一行记录
+
+集合（Collection）：多个文档组成一个集合（collection），相当于关系数据库的表。 
+
+数据库（database）：多个集合（collection），逻辑上组织在一起，就是数据库（database）。
+</code></pre><p>一个MongoDB实例支持多个数据库（database）。</p>
+<h3 id="安装以及引用"><a href="#安装以及引用" class="headerlink" title="安装以及引用"></a>安装以及引用</h3><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p><strong>npm install mongoose</strong></p>
+<h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><p><strong>var mongoose = require(‘mongoose’);</strong></p>
+<h5 id="链接数据库"><a href="#链接数据库" class="headerlink" title="链接数据库"></a>链接数据库</h5><p><strong>var db = mongoose(‘mongodb://user:pass@localhost:port/database’);</strong></p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>var mongoose = require(“mongoose”); </p>
+<p>var db = mongoose.connect(“mongodb://127.0.0.1:27017/test”); </p>
+<p>db.connection.on(“error”, function (error) { </p>
+<p>&#160; &#160; &#160; &#160;console.log(“数据库连接失败：” + error); </p>
+<p>}); </p>
+<p>db.connection.on(“open”, function () {</p>
+<p>&#160; &#160; &#160; &#160;console.log(“——数据库连接成功！——”); </p>
+<p>});</p>
+<h3 id="MongoDB基础"><a href="#MongoDB基础" class="headerlink" title="MongoDB基础"></a>MongoDB基础</h3><pre><code>Schema ： 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力
+
+Model ： 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对
+
+Entity ： 由Model创建的实体，他的操作也会影响数据库
+</code></pre><p>Schema —— 一种以文件形式存储的数据库模型骨架，无法直接通往数据库端，也就是说它不具备对数据库的操作能力，仅仅只是数据库模型在程序片段中的一种表现，可以说是数据属性模型(传统意义的表结构)，又或着是“集合”的模型骨架。 </p>
+<pre><code>var mongoose = require(&quot;mongoose&quot;)
+var TestSchema = new mongoose.Schema({
+    name : {type:String},
+    age : {type:Number,default:0},
+    time : {type:Date,default:Date.now},
+    emial : {type:String,default:&apos;&apos;}
+});
+</code></pre><p>Model —— 由Schema构造生成的模型，除了Schema定义的数据库骨架以外，还具有数据库操作的行为，类似于管理数据库属性、行为的类。</p>
+<pre><code>var db = mongoose.connect(&quot;mongodb://127.0.0.1:27017/test&quot;);
+// 通过Schema创建Model
+var TestModel = db.model(&quot;test1&quot;, TestSchema);
+</code></pre><p>数据库中的集合名称,当我们对其添加数据时如果test1已经存在，则会保存到其目录下，如果未存在，则会创建test1集合，然后在保存数据。</p>
+<p>Entity —— 由Model创建的实体，使用save方法保存数据，Model和Entity都有能影响数据库的操作，但Model比Entity更具操作性。</p>
+<pre><code>var TestEntity = new TestModel({
+    name : &quot;Lenka&quot;,
+    age : 36,
+    email : &quot;lenka@qq.com&quot;
+});
+console.log(TestEntity.name); // Lenka
+console.log(TestEntity.age); // 36
+</code></pre><h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><p>数据库的连接，Schemal的创建，模型的创建，实体的创建，通过实体保存数据库信息。</p>
+<pre><code>var mongoose = require(&quot;mongoose&quot;);
+var db = mongoose.connect(&quot;mongodb://127.0.0.1:27017/test&quot;);
+var TestSchema = new mongoose.Schema({
+        name : {type:String},
+    age : {type:Number,default:0},
+    email : {type:String},
+    time : {type:Date,default:Date.now}
+});
+var TestModel =     db.model(&quot;test1&quot;,TestSchema); //&apos;test&apos;相当于collection
+var TestEntity = new TestModel({
+    name:&apos;helloworld&apos;,
+    age:28,
+    emial:&apos;helloworld@qq.com&apos;
+});
+TestEntity.save(function(err,doc){
+    if(err){
+           console.log(&quot;error :&quot; + err);
+    } else {
+        console.log(doc);
+    }
+});
+</code></pre><h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><p>通过entity、model来完成数据库的增删查改。 </p>
+<p>mongoose链接</p>
+<pre><code>var mongoose = require(&apos;mongoose&apos;);
+var db       = mongoose.createConnection(&apos;mongodb://127.0.0.1:27017/test&apos;); 
+</code></pre><p>Schema 结构</p>
+<pre><code>var mongooseSchema = new mongoose.Schema({
+    username : {type : String, default : &apos;匿名用户&apos;},
+    title    : {type : String},
+    content  : {type : String},
+    time     : {type : Date, default: Date.now},
+       age      : {type : Number}
+});
+
+// 添加 mongoose 实例方法
+mongooseSchema.methods.findbyusername =         function(username, callback) {
+    return this.model(&apos;mongoose&apos;).find({
+        username: username
+    }, callback);
+}
+// 添加 mongoose 静态方法，静态方法在Model层就能使用
+mongooseSchema.statics.findbytitle = function(title,     callback) {
+    return this.model(&apos;mongoose&apos;).find({
+        title:title
+    }, callback);
+}
+</code></pre><p>相当于Schemal是一个构造函数，在这里可以添加方法findbyuseraname()和findbytitle</p>
+<p>model结构</p>
+<pre><code>var mongooseModel = db.model(&apos;mongoose&apos;, mongooseSchema);
+</code></pre><p>Entity结构</p>
+<pre><code>//增加操作
+var doc = {
+    username : &apos;emtity_demo_username&apos;, 
+    title : &apos;emtity_demo_title&apos;, 
+    content : &apos;emtity_demo_content&apos;
+};
+var mongooseEntity = new mongooseModel(doc);
+mongooseEntity.save(function(error) {
+if(error) {
+    console.log(error);
+} else {
+    console.log(&apos;saved OK!&apos;);
+}
+// 关闭数据库链接
+    db.close();
+});
+</code></pre><p>——</p>
+<pre><code>//查询操作
+var mongooseEntity = new mongooseModel({});
+mongooseEntity.findbyusername(&apos;model_demo_username&apos;,     function(error, result){
+    if(error) {
+        console.log(error);
+       } else {
+        console.log(result);
+    }
+//关闭数据库链接
+    db.close();
+});
+</code></pre><p>基于model的增加、修改与查询</p>
+<pre><code>// 增加记录 基于model操作
+var doc = {
+    username : &apos;model_demo_username&apos;,
+    title : &apos;model_demo_title&apos;, 
+    content : &apos;model_demo_content&apos;
+};
+mongooseModel.create(doc, function(error){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(&apos;save ok&apos;);
+}
+// 关闭数据库链接
+    db.close();
+});
+</code></pre><p>——</p>
+<pre><code>//修改记录
+//mongooseModel.update(conditions, update, options,     callback);
+var conditions = {
+    username : &apos;model_demo_username&apos;
+};
+var update     = {
+    $set : {
+        age : 27, 
+        title : &apos;model_demo_title_update&apos;,
+    }
+};
+var options = {
+    upsert : true
+};
+mongooseModel.update(conditions, update, options, function(error){
+    if(error) {
+           console.log(error);
+    } else {
+        console.log(&apos;update ok!&apos;);
+    }
+//关闭数据库链接
+    db.close();
+});
+</code></pre><p>__</p>
+<pre><code>// mongoose find
+var criteria = {title : &apos;emtity_demo_title&apos;}; // 查询条件
+var fields   = {title : 1, content : 1, time : 1}; // 待返回的字段
+var options  = {};
+mongooseModel.find(criteria, fields, options,     function(error, result){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(result);
+    }
+//关闭数据库链接
+    db.close();
+});
+</code></pre><p>__</p>
+<pre><code>// 删除记录
+var conditions = {username: &apos;emtity_demo_username&apos;};
+mongooseModel.remove(conditions, function(error){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(&apos;delete ok!&apos;);
+    }
+
+//关闭数据库链接
+    db.close();
+});
+</code></pre><p>基于实例方法的查询</p>
+<p>前面说到findbyusername()在schemal层定义，相当于实例化，然后继承findbyusername()方法</p>
+<pre><code>var mongooseEntity = new mongooseModel({});
+mongooseEntity.findbyusername(&apos;model_demo_username&apos;, function(error, result){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(result);
+    }
+//关闭数据库链接
+db.close();
+});
+</code></pre><p>基于静态方法的查询</p>
+<p>静态方法可以直接在模型层调用</p>
+<pre><code>// 基于静态方法的查询
+mongooseModel.findbytitle(&apos;emtity_demo_title&apos;, function(error, result){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(result);
+    }
+//关闭数据库链接
+    db.close();
+});
+</code></pre>
+    
+  </div>
+</article>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2016/11/14/mongodb/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
