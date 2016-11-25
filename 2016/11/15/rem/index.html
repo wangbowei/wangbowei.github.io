@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>rem | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+  
+
+  <meta name="description" content="移动端页面使用rem来做适配rem是指相对于根元素(即html元素)的字体大小的单位。与em不同的是它不会继承父元素的em大小。
+假设根元素的字体大小事10px,则5rem=5*10px,
+这样做是因为以往我们用viewport来获取屏幕的宽度，然后选我们需要兼容设备的最小宽度（一般是320px）。根据这最小宽度来做页面。单位使用px和百分比。在宽度不同的设备上，页面的字体大小，内容尺寸都是一样的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rem">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/rem/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="移动端页面使用rem来做适配rem是指相对于根元素(即html元素)的字体大小的单位。与em不同的是它不会继承父元素的em大小。
+假设根元素的字体大小事10px,则5rem=5*10px,
+这样做是因为以往我们用viewport来获取屏幕的宽度，然后选我们需要兼容设备的最小宽度（一般是320px）。根据这最小宽度来做页面。单位使用px和百分比。在宽度不同的设备上，页面的字体大小，内容尺寸都是一样的">
+<meta property="og:image" content="http://a.hiphotos.baidu.com/image/pic/item/9358d109b3de9c82318972a76581800a19d8432e.jpg">
+<meta property="og:image" content="http://g.hiphotos.baidu.com/image/pic/item/faf2b2119313b07e54f8da2005d7912397dd8c55.jpg">
+<meta property="og:image" content="http://h.hiphotos.baidu.com/image/pic/item/d009b3de9c82d1581393ac99890a19d8bc3e4281.jpg">
+<meta property="og:updated_time" content="2016-11-25T14:00:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rem">
+<meta name="twitter:description" content="移动端页面使用rem来做适配rem是指相对于根元素(即html元素)的字体大小的单位。与em不同的是它不会继承父元素的em大小。
+假设根元素的字体大小事10px,则5rem=5*10px,
+这样做是因为以往我们用viewport来获取屏幕的宽度，然后选我们需要兼容设备的最小宽度（一般是320px）。根据这最小宽度来做页面。单位使用px和百分比。在宽度不同的设备上，页面的字体大小，内容尺寸都是一样的">
+<meta name="twitter:image" content="http://a.hiphotos.baidu.com/image/pic/item/9358d109b3de9c82318972a76581800a19d8432e.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=028c63b1" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端页面使用rem来做适配"><span class="toc-text">移动端页面使用rem来做适配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体做法"><span class="toc-text">具体做法</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-rem" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">rem</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.11.15</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>John Doe</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.forsigner.com/2016/11/15/rem/#disqus_thread"></a>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="移动端页面使用rem来做适配"><a href="#移动端页面使用rem来做适配" class="headerlink" title="移动端页面使用rem来做适配"></a>移动端页面使用rem来做适配</h1><p><strong>rem</strong>是指相对于根元素(即html元素)的字体大小的单位。与em不同的是它不会继承父元素的em大小。</p>
+<p>假设根元素的字体大小事10px,则5rem=5*10px,</p>
+<p>这样做是因为以往我们用viewport来获取屏幕的宽度，然后选我们需要兼容设备的最小宽度（一般是320px）。根据这最小宽度来做页面。单位使用px和百分比。在<font color="red">宽度不同的设备上</font>，页面的字体大小，内容尺寸都是一样的，不同的是，大屏的内容间的空隙比小屏的大。所以这样做的缺点就是，页面在某些尺寸的设备上显示的效果不好。</p>
+<p>如果用rem来页面，我们会根据不同的设备宽度在根元素上设置不同的字体大小。宽度越宽，字体越大。然后对原本使用px的地方使用rem来替换。这样，字体大小，内容尺寸，对随着屏幕宽度的变大而变大。在大多数的屏幕上看起来视觉效果是一样的。</p>
+<h3 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h3><p>上面说过rem是通过根元素进行适配的，网页中的根元素指的是html我们通过设置html的字体大小就可以控制rem的大小。举个例子：</p>
+<pre><code>html{
+    font-size:20px;
+}
+.btn {
+width: 6rem;
+height: 3rem;
+line-height: 3rem;
+font-size: 1.2rem;
+display: inline-block;
+background: #06c;
+color: #fff;
+border-radius: .5rem;
+text-decoration: none;
+text-align: center; 
+}
+</code></pre><p>Demo 上面代码结果按钮大小如下图：</p>
+<p><img src="http://a.hiphotos.baidu.com/image/pic/item/9358d109b3de9c82318972a76581800a19d8432e.jpg" alt=""></p>
+<p>我把html设置成10px是为了方便我们计算，为什么6rem等于60px。如果这个时候我们的.btn的样式不变，我们再改变html的font-size的值，看看按钮发生上面变化:</p>
+<pre><code>html{
+    font-size:40px;
+}        
+</code></pre><p>Demo<br>按钮大小结果如下:</p>
+<p><img src="http://g.hiphotos.baidu.com/image/pic/item/faf2b2119313b07e54f8da2005d7912397dd8c55.jpg" alt=""></p>
+<p>上面的width，height变成了上面结果的两倍，我们只改变了html的font-size，但.btn样式的width,height的rem设置的属性不变的情况下就改变了按钮在web中的大小。</p>
+<p>其实从上面两个案例中我们就可以计算出1px多少rem:</p>
+<p>第一个例子：</p>
+<p>120px = 6rem * 20px(根元素设置大值)</p>
+<p>第二个例子：</p>
+<p>240px = 6rem * 40px(根元素设置大值)</p>
+<p>推算出：</p>
+<p>10px = 1rem 在根元素（font-size = 10px的时候）；</p>
+<p>20px = 1rem 在根元素（font-size = 20px的时候）；</p>
+<p>40px = 1rem 在根元素（font-size = 40px的时候）；</p>
+<p><img src="http://h.hiphotos.baidu.com/image/pic/item/d009b3de9c82d1581393ac99890a19d8bc3e4281.jpg" alt=""></p>
+<p>在上面两个例子中我们发现第一个案例按钮是等比例放大到第二个按钮，html font-size的改变就会导致按钮的大小发生改变，我们并不需要改变先前给按钮设置的宽度和高度，其实这就是我们最想看到的，为什么这么说？接下来我们再来看一个例子：</p>
+<p>Demo</p>
+<p>由上面两个的demo中我们知道改变html的font-size可以等比改变所有用了rem单位的元素，所以大家可以通过chrome浏览器的调试工具去切换第三个的demo在不同设备下的展示效果，或者通过缩放浏览器的宽度来查看效果，我们可以看到不管在任何分辨率下，页面的排版都是按照等比例进行切换，并且布局没有乱。我只是通过一段js根据浏览器当前的分辨率改变font-size的值，就简单的实现了上面的效果，页面的所有元素都不需要进行任何改变。</p>
+<p>到这里肯定有很多人会问我是怎么计算出不同分辨率下font-size的值？</p>
+<p>首先假设我上面的页面设计稿给我时候是按照640的标准尺寸给我的前提下，（当然这个尺寸肯定不一定是640，可以是320，或者480，又或是375）来看一组表格。</p>
+<p>上面的表格蓝色一列是Demo3中页面的尺寸，页面是以640的宽度去切的，怎么计算不同宽度下font-site的值，大家看表格上面的数值变化应该能明白。举个例子：384/640 = 0.6，384是640的0.6倍，所以384页面宽度下的font-size也等于它的0.6倍，这时384的font-size就等于12px。在不同设备的宽度计算方式以此类推。</p>
+<p>Demo3中我是通过JS去动态计算根元素的font-size，这样的好处是所有设备分辨率都能兼容适配，淘宝首页目前就是用的JS计算。</p>
+<p><strong>JS计算</strong><br>记得把下面这段代码抄到自己的js文件中，来做适配；</p>
+<pre><code>(function (doc, win) {
+    /*初始化 默认宽度、字体、最小最大比例*/
+    var init_w = 640,
+    init_fs = 10,
+    max_scale = 1,
+    min_scale = 0.5;
+    var docEl = doc.documentElement,
+    resizeEvt = &apos;orientationchange&apos; in window ?&apos;orientationchange&apos; : &apos;resize&apos;,
+    recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        var percentage = clientWidth / init_w;
+        percentage = percentage &gt; max_scale?max_scale:     percentage &lt;min_scale?min_scale: percentage ;
+
+        docEl.style.fontSize = init_fs * percentage + &apos;px&apos;;
+    };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+                                                    doc.addEventListener(&apos;DOMContentLoaded&apos;,recalc,false);
+})
+(document, window);
+</code></pre><p>但其实不用JS我们也可以做适配，一般我们在做web app都会先统计自己网站有哪些主流的屏幕设备，然后去针对那些设备去做media query设置也可以实现适配，例如下面这样：</p>
+<pre><code>html {
+    font-size : 20px;
+}
+@media only screen and (min-width: 401px){
+       html {
+        font-size: 25px !important;
+    }
+}
+@media only screen and (min-width: 428px){
+    html {
+        font-size: 26.75px !important;
+    }
+}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 30px !important; 
+    }
+}
+@media only screen and (min-width: 569px){
+    html {
+        font-size: 35px !important; 
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 40px !important; 
+    }    
+}
+</code></pre><p>上面的做的设置当然是不能所有设备全适配，但是用JS是可以实现全适配。具体用哪个就要根据自己的实际工作场景去定了。</p>
+<p>下面推荐两个国内用了rem技术的移动站，大家可以上去参考看看他们的做法，手机淘宝目前只有首页用了rem，淘宝native app的首页是内嵌的web app首页。</p>
+<p><a href="m.taobao.com">淘宝首页</a></p>
+<p><a href="m.dx.com">D X</a></p>
+<p>感谢你的阅读，本文由 腾讯ISUX 版权所有，转载时请注明出处，违者必究，谢谢你的合作。</p>
+
+    
+  </div>
+</article>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2016/11/15/rem/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
